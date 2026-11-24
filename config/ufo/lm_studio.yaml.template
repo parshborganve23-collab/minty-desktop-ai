@@ -1,0 +1,30 @@
+# Minty Desktop AI - LM Studio Local Quantized Model Configuration
+# Copy this file to lm_studio.yaml and adjust the values for your local LM Studio setup.
+#
+# LM Studio exposes a local OpenAI-compatible API (default: http://localhost:1234/v1).
+# Load a quantised GGUF model in LM Studio, start the local server, then point
+# Minty Desktop AI at it using the configuration below.
+#
+# See README.md section "Running with a local quantised model (LM Studio)" for the
+# step-by-step setup guide.
+
+LM_STUDIO:
+  # Local LM Studio OpenAI-compatible endpoint.
+  # Default LM Studio server port is 1234.
+  API_BASE: "http://localhost:1234/v1/chat/completions"
+
+  # LM Studio accepts any non-empty string as the API key.
+  API_KEY: "lm-studio"
+
+  # The exact model name as shown in LM Studio (e.g. "Qwen2.5-7B-Instruct-Q4_K_M").
+  # Choose a quantised model that fits your VRAM/RAM.
+  API_MODEL: "YOUR_QUANTISED_MODEL_NAME"
+
+  # Optional: set to True to use the LM Studio server for the host/app agents.
+  ENABLED: False
+
+  # Generation parameters tuned for a local quantised model.
+  MAX_TOKENS: 2000
+  TEMPERATURE: 0.0
+  TOP_P: 0.0
+  TIMEOUT: 120
